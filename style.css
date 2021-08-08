@@ -56,12 +56,28 @@ Styles used in the about section
     font-family: 'Assistant', sans-serif;
     font-weight: 200;
     text-align: center;
+    padding-bottom: 5px;
 }
 
 .about-normalText {
     font-family:'Catamaran', sans-serif;
     font-size: 110%;
     text-align: center;
+}
+
+@media screen and (max-width : 480px)
+{
+    .about-normalText {
+        font-size: 10px;
+    }
+
+    .about-skillsTex {
+        font-size: 10px;
+    }
+
+    .about-smallHeader {
+        font-size: 15px;
+    }
 }
 
 #about-disappearingDiv {
@@ -72,7 +88,7 @@ Styles used in the about section
     opacity: 0;
     transition: opacity 0.1s ease-in-out;
     background-color: white;
-    padding-bottom: 50px;
+    padding-bottom: 2vw;
     width: 100%;
 }
 .about-descriptionDiv {
