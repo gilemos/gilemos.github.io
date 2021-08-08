@@ -3,7 +3,7 @@ body {
 }
 
 .sectionDivs {
-    height: 110vh;
+    min-height: 110vh;
     padding: 7% !important;
 }
 
@@ -32,15 +32,17 @@ Navbar stuff
 
 #home{
     background-color:#F5DF4F;
+    padding-top: 50px;
 }
 
 .home-smallHeader {
     font-family: 'Assistant', sans-serif;
+    font-size: max(10px, 2vw);
 }
 
 .home-bigHeader {
     font-family: 'Allan', cursive;
-    font-size: 15vw;
+    font-size: max(15px, 15vw);
 }
 
 #about {
