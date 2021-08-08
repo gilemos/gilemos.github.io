@@ -1,0 +1,118 @@
+body {
+    position: relative;
+}
+
+.sectionDivs {
+    height: 110vh;
+    padding: 7% !important;
+}
+
+.sectionHeader {
+    font-family: 'Assistant', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+/*
+Navbar stuff
+
+.navbar-inverse {
+    background-color: #F5DF4F !important;
+    border-width: 0px !important;
+}
+*/
+
+ .navbar-nav li a {
+    font-family: 'Assistant', sans-serif;
+    color:dimgrey;
+    font-size: 110%;
+ }
+
+
+#home{
+    background-color:#F5DF4F;
+}
+
+.home-smallHeader {
+    font-family: 'Assistant', sans-serif;
+}
+
+.home-bigHeader {
+    font-family: 'Allan', cursive;
+    font-size: 15vw;
+}
+
+#about {
+    background-color:white;
+}
+
+.about-smallHeader {
+    font-family: 'Assistant', sans-serif;
+    font-weight: 200;
+}
+
+.about-normalText {
+    font-family:'Catamaran', sans-serif;
+    font-size: 110%;
+    text-align: justify;
+    padding-bottom: 50px;
+}
+
+.about-interestsCell {
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: lightgray;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.about-interestsHeader {
+    font-family: 'Assistant', sans-serif;
+    font-weight: 300;
+    color: darkgrey;
+    text-align: center;
+    font-size: 110%;
+}
+
+.about-interestsText {
+    font-family:'Catamaran', sans-serif;
+    text-align: center;
+}
+
+#projects {
+    background-color: ghostwhite;
+}
+
+.projects-cell {
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    padding: 25px;
+    cursor: pointer;
+}
+
+.projects-cell:hover{
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+@media(max-width: 990px){
+    .projects-cell{
+      margin: 20px;
+    }
+  } 
+
+.projects-cellHeader {
+    font-family: 'Assistant', sans-serif;
+    text-align: center;
+    font-weight: 300;
+    color:slategray;
+    font-size: 120%;
+}
+
+.projects-cellText {
+    font-family:'Catamaran', sans-serif;
+    text-align: justify;
+}
