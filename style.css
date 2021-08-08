@@ -37,16 +37,10 @@ Styles used in the home section
     background-color: #FF0031;
 }
 
-.home-smallHeader {
-    font-family: 'Assistant', sans-serif;
-    font-size: max(10px, 2vw);
-    padding-top: 10vh;
-    padding-bottom: 80px;
-}
-
 .home-bigHeader {
     font-family: 'Homemade Apple', cursive;
-    font-size: max(15px, 10vw);
+    font-size: 9vw;
+    padding-top: 25vh;
 }
 
 /*
@@ -82,7 +76,7 @@ Styles used in the about section
     width: 100%;
 }
 .about-descriptionDiv {
-    width: 50%;
+    width: 70%;
     margin: auto;
 }
 
@@ -148,8 +142,8 @@ Styles used in the project section
 
 #projects {
     background-color: ghostwhite;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
+    position: relative;
+    z-index: 4;
 }
 
 .projects-cell {

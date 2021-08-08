@@ -5,8 +5,8 @@ var scrollFunc = function() {
     if (y >= (window.screen.height * 0.9) && y <  (window.screen.height * 1.7)) {
         disDiv.style.opacity = 1;
     } else {
-        disDiv.style.opacity = 0;
         skillsDiv.style.opacity = 0;
+        disDiv.style.opacity = 0;
     }
 
     if (y >= (window.screen.height) && y < (window.screen.height * 1.7)) {
