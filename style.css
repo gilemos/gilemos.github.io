@@ -1,3 +1,7 @@
+/*
+Styles used globally
+*/
+
 body {
     position: relative;
 }
@@ -7,6 +11,11 @@ body {
     padding: 7% !important;
 }
 
+.colInnerPaddingDiv {
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
 .sectionHeader {
     font-family: 'Assistant', sans-serif;
     font-weight: 300;
@@ -14,51 +23,95 @@ body {
     padding-bottom: 30px;
 }
 
-/*
-Navbar stuff
-
-.navbar-inverse {
-    background-color: #F5DF4F !important;
-    border-width: 0px !important;
-}
-*/
-
  .navbar-nav li a {
     font-family: 'Assistant', sans-serif;
     color:dimgrey;
     font-size: 110%;
  }
 
+/*
+Styles used in the home section
+*/
 
 #home{
-    background-color:#F5DF4F;
-    padding-top: 50px;
+    background-color: #FF0031;
 }
 
 .home-smallHeader {
     font-family: 'Assistant', sans-serif;
     font-size: max(10px, 2vw);
+    padding-top: 10vh;
+    padding-bottom: 80px;
 }
 
 .home-bigHeader {
-    font-family: 'Allan', cursive;
-    font-size: max(15px, 15vw);
+    font-family: 'Homemade Apple', cursive;
+    font-size: max(15px, 10vw);
 }
+
+/*
+Styles used in the about section
+*/
 
 #about {
     background-color:white;
+    min-height: 130vh;
 }
 
 .about-smallHeader {
     font-family: 'Assistant', sans-serif;
     font-weight: 200;
+    text-align: center;
 }
 
 .about-normalText {
     font-family:'Catamaran', sans-serif;
     font-size: 110%;
-    text-align: justify;
+    text-align: center;
+}
+
+#about-disappearingDiv {
+    position:fixed;
+    top: 50;
+    left:0;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+    background-color: white;
     padding-bottom: 50px;
+    width: 100%;
+}
+.about-descriptionDiv {
+    width: 50%;
+    margin: auto;
+}
+
+#about-skillsDiv {
+    opacity: 0;
+    padding-bottom: 50px;
+    transition: opacity 0.1s ease-in-out;
+    position:relative;
+    z-index: 1;
+}
+
+.about-skillsText {
+    font-size: 5vw;
+    font-family: 'Assistant', sans-serif;
+    color:darkgrey;
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+.about-skillsText:hover {
+    transform: scale(1.05);
+    color:#FF0031;
+    z-index: -1;
+}
+
+.about-row {
+    overflow: hidden !important; 
 }
 
 .about-interestsCell {
@@ -67,6 +120,11 @@ Navbar stuff
     border-color: lightgray;
     border-radius: 4px;
     padding: 10px;
+}
+
+[class*="about-interestsCell"]{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
 }
 
 .about-interestsHeader {
@@ -79,11 +137,19 @@ Navbar stuff
 
 .about-interestsText {
     font-family:'Catamaran', sans-serif;
-    text-align: center;
+    text-align: justify;
+    padding: 10px;
 }
+
+/*
+Styles used in the project section
+*/
+
 
 #projects {
     background-color: ghostwhite;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 .projects-cell {
