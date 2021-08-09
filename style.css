@@ -6,6 +6,10 @@ body {
     position: relative;
 }
 
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none !important;
+}
+
 .sectionDivs {
     min-height: 110vh;
     padding: 7% !important;
@@ -91,6 +95,7 @@ Styles used in the about section
     padding-bottom: 2vw;
     width: 100%;
 }
+
 .about-descriptionDiv {
     width: 70%;
     margin: auto;
@@ -105,7 +110,7 @@ Styles used in the about section
 }
 
 .about-skillsText {
-    font-size: 5vw;
+    font-size: 4vw;
     font-family: 'Assistant', sans-serif;
     color:darkgrey;
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
@@ -169,6 +174,7 @@ Styles used in the project section
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
     padding: 25px;
     cursor: pointer;
+    min-height: 25vw;
 }
 
 .projects-cell:hover{
@@ -180,17 +186,36 @@ Styles used in the project section
     .projects-cell{
       margin: 20px;
     }
-  } 
+} 
 
 .projects-cellHeader {
     font-family: 'Assistant', sans-serif;
     text-align: center;
     font-weight: 300;
     color:slategray;
-    font-size: 120%;
+    font-size: 130%;
 }
 
 .projects-cellText {
     font-family:'Catamaran', sans-serif;
     text-align: justify;
+    font-size: 1.2vw;
+}
+
+@media(max-width: 990px){
+    .projects-cellHeader{
+        font-size: 15px;
+    }
+
+    .projects-cellText {
+        font-size: 10px;
+    }
+
+    .projects-cell {
+        min-height: 100px;
+    }
+}
+
+.projects-row {
+    padding-bottom: 20px;
 }
