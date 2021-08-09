@@ -20,6 +20,25 @@ var loadFunc = function() {
     padDiv.style.height = disDiv.clientHeight * 2;
 };
 
+function eraseAllFigures() {
+    var x = document.querySelectorAll(".galleryItem");
+    var i;
+    for (i = 0; i < x.length; i++) {
+        x[i].style.opacity = "0";
+        x[i].style.display = "none";
+    }
+}
+
+function selectFigure(className) {
+    eraseAllFigures();
+    var x = document.querySelectorAll(className);
+    var i;
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "block";
+        x[i].style.opacity = "1";
+    }
+}
+
 window.addEventListener("scroll", scrollFunc);
 window.addEventListener("load", loadFunc);
 

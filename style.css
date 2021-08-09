@@ -219,3 +219,40 @@ Styles used in the project section
 .projects-row {
     padding-bottom: 20px;
 }
+
+#project-menu {
+    list-style-type: none;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+#project-menu li  {
+    padding-bottom: 20px;
+    padding-right: 50px;
+    font-family: 'Assistant', sans-serif;
+    font-size: 120%;
+    transition: .3s;
+}
+
+#project-menu li:hover  {
+    color: #FF0031;
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 990px) {
+    .sidenav {
+      height: auto;
+      width: 100%;
+      margin:auto;
+      text-align: center;
+      padding: 15px;
+    }
+
+    #project-menu li  {
+        display: inline-block;
+    }
+
+    #project-menu li  {
+        font-size: 15px;
+    }
+}
