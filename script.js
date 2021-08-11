@@ -21,7 +21,7 @@ var loadFunc = function() {
 };
 
 function eraseAllFigures() {
-    var x = document.querySelectorAll(".galleryItem");
+    var x = document.querySelectorAll(".galleryItemCol");
     var i;
     for (i = 0; i < x.length; i++) {
         x[i].style.opacity = "0";

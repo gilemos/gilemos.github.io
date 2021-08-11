@@ -169,17 +169,20 @@ Styles used in the project section
 
 .projects-cell {
     border-radius: 4px;
-    background: #fff;
     box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
     padding: 25px;
     cursor: pointer;
-    min-height: 25vw;
+    min-height: 20vw;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .projects-cell:hover{
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+    background-image: linear-gradient(#FF3B3F, #FF3B3F, #E23076);
+    opacity:0.8;
 }
 
 @media(max-width: 990px){
@@ -192,28 +195,48 @@ Styles used in the project section
     font-family: 'Assistant', sans-serif;
     text-align: center;
     font-weight: 300;
-    color:slategray;
-    font-size: 130%;
+    color:white;
+    font-size: 1.2vw;
 }
 
 .projects-cellText {
     font-family:'Catamaran', sans-serif;
     text-align: justify;
-    font-size: 1.2vw;
+    font-size: 1.1vw;
+    color: white;
+}
+
+.projects-cellTextSpan {
+    display:none;
+}
+
+.projects-cell:hover .projects-cellTextSpan {
+    display:block
 }
 
 @media(max-width: 990px){
     .projects-cellHeader{
         font-size: 15px;
+        color:lightslategray;
     }
 
     .projects-cellText {
         font-size: 10px;
+        color:black;
     }
 
     .projects-cell {
         min-height: 100px;
     }
+
+    .projects-cellTextSpan {
+        display: block;
+    }
+
+    .galleryItem {
+        background: white !important;
+    }
+
 }
 
 .projects-row {
@@ -255,4 +278,35 @@ Styles used in the project section
     #project-menu li  {
         font-size: 15px;
     }
+}
+
+.galleryLlama {
+    background: url("images/llama_white.png");
+    background-size: cover;
+}
+
+.galleryPear {
+    background: url("images/pear.png");
+    background-size: cover;
+}
+
+.galleryJelly {
+    background: url("images/jellyfish_white.png");
+    background-size: cover;
+}
+
+.galleryAmazoon {
+    background: url("images/amazoon.png");
+    background-size: cover;
+}
+
+.galleryBmore {
+    background: url("images/bmore.png");
+    background-size: cover;
+}
+
+.galleryItem {
+    background-color: lightgray;
+    margin:0px;
+    border-radius: 4px;
 }
