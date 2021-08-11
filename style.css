@@ -162,7 +162,7 @@ Styles used in the project section
 
 
 #projects {
-    background-color: ghostwhite;
+    background-color: #f8f8ff;
     position: relative;
     z-index: 4;
 }
@@ -174,8 +174,8 @@ Styles used in the project section
     padding: 25px;
     cursor: pointer;
     min-height: 20vw;
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
 }
 
 .projects-cell:hover{
@@ -309,4 +309,37 @@ Styles used in the project section
     background-color: lightgray;
     margin:0px;
     border-radius: 4px;
+}
+
+
+/* End div */
+#contact {
+    background-color: #3b3b3b;
+    min-height: 30vw;
+}
+
+.contact-smallHeader {
+    font-family: 'Assistant', sans-serif;
+    font-weight: 300;
+    color:white;
+    padding:50px;
+}
+
+.contact-normalText {
+    font-family:'Catamaran', sans-serif;
+    text-align: center;
+    color: white;
+    padding-bottom: 30px;
+    transition: .3s;
+}
+
+.contact-normalText:hover {
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 990px) {
+    .contact-normalText {
+        text-align: left;
+        padding-left: 30px;
+    }
 }
