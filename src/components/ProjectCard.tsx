@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './ProjectCard.css';
 
@@ -8,6 +8,9 @@ interface ProjectCardProps {
   tags?: string[];
   technologies: string[];
   githubUrl: string;
+  isExpanded?: boolean;
+  onExpand?: () => void;
+  onCollapse?: () => void;
 }
 
 const TECHNOLOGY_COLORS: { [key: string]: string } = {
@@ -54,39 +57,39 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   tags = [],
   technologies,
-  githubUrl
+  githubUrl,
+  isExpanded = false,
+  onExpand,
+  onCollapse
 }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
   const handleGitHubClick = () => {
     window.open(githubUrl, '_blank', 'noopener,noreferrer');
   };
 
   const handleCardClick = () => {
-    setIsExpanded(true);
+    if (onExpand) {
+      onExpand();
+    }
   };
 
   const handleCloseClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setIsExpanded(false);
+    if (onCollapse) {
+      onCollapse();
+    }
   };
 
   return (
     <motion.div 
       className={`project-card ${isExpanded ? 'expanded' : ''}`}
       onClick={!isExpanded ? handleCardClick : undefined}
-      layout
       initial={false}
-      animate={isExpanded ? { 
-        scale: 1,
-        opacity: 1
-      } : {
-        scale: 1,
-        opacity: 1
+      animate={{
+        scale: isExpanded ? 1.02 : 1,
       }}
       transition={{
-        duration: 0.5,
-        ease: [0.4, 0, 0.2, 1]
+        duration: 0.3,
+        ease: "easeInOut"
       }}
       style={{
         cursor: !isExpanded ? 'pointer' : 'default',
@@ -98,17 +101,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <div className="project-card-header">
         <h3 className="project-title">{title}</h3>
         <p className="project-description">{description}</p>
-        
-        {tags.length > 0 && (
-          <div className="project-tags">
-            {tags.map((tag, index) => (
-              <span key={index} className="project-tag">
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
       </div>
+
+      {tags.length > 0 && (
+        <div className="project-tags">
+          {tags.slice(0, 3).map((tag, index) => (
+            <span key={index} className="project-tag">
+              {tag}
+            </span>
+          ))}
+          {tags.length > 3 && (
+            <span className="project-tag ellipsis-tag">...</span>
+          )}
+        </div>
+      )}
 
       <div className="project-divider"></div>
 
@@ -136,10 +142,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <motion.button
             className="close-button"
             onClick={handleCloseClick}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.2 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.15 }}
           >
             ×
           </motion.button>

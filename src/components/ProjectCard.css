@@ -7,6 +7,7 @@
   width: 100%;
   max-width: 400px;
   min-height: 320px;
+  height: 320px;
   aspect-ratio: 5/4;
   display: flex;
   flex-direction: column;
@@ -26,7 +27,7 @@
   cursor: default !important;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   z-index: 10;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease-in-out;
 }
 
 .project-card.expanded .project-description {
@@ -55,6 +56,8 @@
 /* Header Section */
 .project-card-header {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-title {
@@ -66,11 +69,15 @@
   line-height: 1.2;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  flex-shrink: 0;
 }
 
 .project-description {
-  margin: 0 0 1rem 0;
+  margin: 0;
   font-size: 0.9rem !important;
   font-weight: 300;
   color: #656d76;
@@ -79,19 +86,22 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
   -webkit-box-orient: vertical;
+  flex-grow: 1;
 }
 
 /* Tags Section */
 .project-tags {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.4rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
   overflow: hidden;
-  max-height: 2.5rem;
+  max-height: 1.8rem;
+  flex-shrink: 0;
 }
 
 .project-tag {
@@ -107,12 +117,19 @@
   flex-shrink: 0;
 }
 
+.project-tag.ellipsis-tag {
+  background: #e1e4e8;
+  color: #656d76;
+  font-weight: 600;
+  text-transform: none;
+}
+
 /* Divider */
 .project-divider {
   width: 100%;
   height: 1px;
   background: #d0d7de;
-  margin: 0.8rem 0;
+  margin: 0.5rem 0 0.8rem 0;
   flex-shrink: 0;
 }
 
@@ -131,8 +148,8 @@
   flex-wrap: wrap;
   gap: 0.6rem;
   align-items: center;
+  max-height: 3.2rem;
   overflow: hidden;
-  max-height: 3rem;
 }
 
 .technology-item {
@@ -249,6 +266,11 @@
     border: 1px solid #30363d;
   }
 
+  .project-tag.ellipsis-tag {
+    background: #30363d;
+    color: #8b949e;
+  }
+
   .project-divider {
     background: #30363d;
   }
@@ -290,22 +312,28 @@
   .project-card {
     max-width: 100%;
     padding: 1rem;
+    height: 300px;
     aspect-ratio: 5/4;
   }
 
   .project-title {
     font-size: 1rem;
     margin-bottom: 0.4rem;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 
   .project-description {
     font-size: 0.65rem;
-    margin-bottom: 0.8rem;
+    margin: 0;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
   }
 
   .project-tags {
-    margin-bottom: 0.6rem;
-    max-height: 2rem;
+    margin-bottom: 0.4rem;
+    margin-top: 0.4rem;
+    max-height: 1.5rem;
   }
 
   .project-tag {

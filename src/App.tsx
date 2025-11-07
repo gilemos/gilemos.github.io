@@ -14,6 +14,45 @@ interface Project {
 
 function App() {
   const [projects, setProjects] = useState<Project[]>([]);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  // Function to get items per row based on screen size
+  const getItemsPerRow = () => {
+    if (window.innerWidth >= 1400) return 4;
+    if (window.innerWidth >= 1024) return 3;
+    if (window.innerWidth >= 769) return 2;
+    return 1;
+  };
+
+  // Function to reorganize projects for row-preserving expansion
+  const getReorganizedProjects = () => {
+    if (expandedIndex === null) return projects;
+
+    const itemsPerRow = getItemsPerRow();
+    const expandedRowStart = Math.floor(expandedIndex / itemsPerRow) * itemsPerRow;
+    const expandedRowEnd = expandedRowStart + itemsPerRow;
+    
+    const beforeExpanded = projects.slice(0, expandedIndex);
+    const expandedItem = projects[expandedIndex];
+    const sameRowAfterExpanded = projects.slice(expandedIndex + 1, expandedRowEnd);
+    const afterExpandedRow = projects.slice(expandedRowEnd);
+    
+    // Put expanded item first, then items after it in the same row, then rest
+    return [
+      ...beforeExpanded,
+      expandedItem,
+      ...sameRowAfterExpanded,
+      ...afterExpandedRow
+    ];
+  };
+
+  const handleCardExpand = (index: number) => {
+    setExpandedIndex(index);
+  };
+
+  const handleCardCollapse = () => {
+    setExpandedIndex(null);
+  };
 
   useEffect(() => {
     const loadProjects = async () => {
@@ -42,7 +81,18 @@ function App() {
     };
 
     loadProjects();
-  }, []);
+
+    // Handle window resize to collapse expanded cards if needed
+    const handleResize = () => {
+      if (expandedIndex !== null) {
+        // Collapse on resize to prevent layout issues
+        setExpandedIndex(null);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [expandedIndex]);
 
   return (
     <div className="App">
@@ -75,16 +125,27 @@ function App() {
           </p>
           
           <div className="projects-grid">
-            {projects.map((project, index) => (
-              <ProjectCard
-                key={index}
-                title={project.title}
-                description={project.description}
-                tags={project.tags}
-                technologies={project.technologies}
-                githubUrl={project.githubUrl}
-              />
-            ))}
+            {getReorganizedProjects().map((project, displayIndex) => {
+              const originalIndex = projects.findIndex(p => 
+                p.title === project.title && 
+                p.description === project.description
+              );
+              const isExpanded = expandedIndex === originalIndex;
+              
+              return (
+                <ProjectCard
+                  key={`${project.title}-${originalIndex}`}
+                  title={project.title}
+                  description={project.description}
+                  tags={project.tags}
+                  technologies={project.technologies}
+                  githubUrl={project.githubUrl}
+                  isExpanded={isExpanded}
+                  onExpand={() => handleCardExpand(originalIndex)}
+                  onCollapse={handleCardCollapse}
+                />
+              );
+            })}
           </div>
         </div>
       </section>
